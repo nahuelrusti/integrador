@@ -1,7 +1,7 @@
 package com.gestion.estudiantes.controller;
 
-import com.gestion.estudiantes.services.CursoService;
-import com.gestion.estudiantes.model.CursoModel;
+import com.gestion.estudiantes.services.CursoServiceImpl;
+import com.gestion.estudiantes.entity.Curso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,32 +11,32 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class CursoController {
     @Autowired
-    CursoService cursoService;
+    private CursoServiceImpl cursoServiceImpl;
     //Acá estaba el repository
 
     @PostMapping("/cursos/nuevo")
-    public CursoModel nuevoCurso(@RequestBody CursoModel cursoNuevo){
-        return cursoService.saveCurso(cursoNuevo);
+    public Curso nuevoCurso(@RequestBody Curso cursoNuevo){
+        return cursoServiceImpl.saveCurso(cursoNuevo);
     }
 
     @PutMapping("/cursos/{id}")
-    public CursoModel editarCurso(@RequestBody CursoModel curso, @PathVariable Long id){
-        return cursoService.modificarCurso(curso, id);
+    public Curso editarCurso(@RequestBody Curso curso, @PathVariable Long id){
+        return cursoServiceImpl.modificarCurso(curso, id);
     }
 
     @DeleteMapping("/cursos/{id}")
     public void eliminarCurso(@PathVariable Long id) {
-        cursoService.deleteCursoById(id);
+        cursoServiceImpl.deleteCursoById(id);
     }
 
     @GetMapping("/cursos")
-    public List<CursoModel> getCurso(){
-        return cursoService.findCursos();
+    public List<Curso> getCurso(){
+        return cursoServiceImpl.findCursos();
     }
 
     @GetMapping("/cursos/{id}")
-    public CursoModel getCursoById(@PathVariable Long id){
-        return cursoService.findCursoById(id);
+    public Curso getCursoById(@PathVariable Long id){
+        return cursoServiceImpl.findCursoById(id);
     }
 
 

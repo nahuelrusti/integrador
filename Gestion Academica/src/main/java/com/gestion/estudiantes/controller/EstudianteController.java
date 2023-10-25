@@ -1,7 +1,7 @@
 package com.gestion.estudiantes.controller;
 
-import com.gestion.estudiantes.model.EstudianteModel;
-import com.gestion.estudiantes.services.EstudianteService;
+import com.gestion.estudiantes.entity.Estudiante;
+import com.gestion.estudiantes.services.EstudianteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,32 +11,32 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class EstudianteController {
     @Autowired
-    EstudianteService estudianteService;
+    private EstudianteServiceImpl estudianteServiceImpl;
     //Acá estaba el repository
 
     @PostMapping("/estudiante/nuevo")
-    public EstudianteModel nuevoEstudiante(@RequestBody EstudianteModel estudianteModel){
-        return estudianteService.saveEstudiante(estudianteModel);
+    public Estudiante nuevoEstudiante(@RequestBody Estudiante estudiante){
+        return estudianteServiceImpl.saveEstudiante(estudiante);
     }
 
     @PutMapping("/estudiante/{id}")
-    public EstudianteModel editarEstudiante(@RequestBody EstudianteModel estudiante, @PathVariable Long id){
-        return estudianteService.modificarEstudiante(estudiante, id);
+    public Estudiante editarEstudiante(@RequestBody Estudiante estudiante, @PathVariable Long id){
+        return estudianteServiceImpl.modificarEstudiante(estudiante, id);
     }
 
     @DeleteMapping("/estudiante/{id}")
     public void eliminarEstudiante(@PathVariable Long id){
-        estudianteService.deleteEstudianteById(id);
+        estudianteServiceImpl.deleteEstudianteById(id);
     }
 
     @GetMapping("/estudiante")
-    public  List<EstudianteModel> getEstudiante(){
-        return  estudianteService.findEstudiantes();
+    public  List<Estudiante> getEstudiante(){
+        return  estudianteServiceImpl.findEstudiantes();
     }
 
     @GetMapping("/estudiante/{id}")
-    public EstudianteModel getEstudianteById(@PathVariable Long Id){
-        return estudianteService.findEstudianteById(Id);
+    public Estudiante getEstudianteById(@PathVariable Long id){
+        return estudianteServiceImpl.findEstudianteById(id);
     }
 
 

@@ -1,7 +1,7 @@
 package com.gestion.estudiantes.controller;
 
-import com.gestion.estudiantes.model.ContactoModel;
-import com.gestion.estudiantes.services.ContactoService;
+import com.gestion.estudiantes.entity.Contacto;
+import com.gestion.estudiantes.services.ContactoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,34 +9,35 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin
 public class ContactoController {
     @Autowired
-    ContactoService contactoService;
+    private ContactoServiceImpl contactoServiceImpl;
     //Acá estaba el repository
 
     @PostMapping("/contactos/nuevo")
-    public ContactoModel nuevoContacto(@RequestBody ContactoModel contactoNuevo){
-        return contactoService.saveContacto(contactoNuevo);
+    public Contacto nuevoContacto(@RequestBody Contacto contactoNuevo){
+        return contactoServiceImpl.saveContacto(contactoNuevo);
     }
 
     @PutMapping("/contactos/{id}")
-    public ContactoModel editarContacto(@RequestBody ContactoModel contacto, @PathVariable Long id){
-        return contactoService.modificarContacto(contacto, id);
+    public Contacto editarContacto(@RequestBody Contacto contacto, @PathVariable Long id){
+        return contactoServiceImpl.modificarContacto(contacto, id);
     }
 
     @DeleteMapping("/contactos/{id}")
     public void eliminarContacto(@PathVariable Long id) {
-        contactoService.deleteContactoById(id);
+        contactoServiceImpl.deleteContactoById(id);
     }
 
     @GetMapping("/contactos")
-    public List<ContactoModel> getContacto(){
-        return contactoService.findContacto();
+    public List<Contacto> getContacto(){
+        return contactoServiceImpl.findContacto();
     }
 
     @GetMapping("/contacto/{id}")
-    public ContactoModel getContactoById(@PathVariable Long id){
-        return contactoService.findContactoById(id);
+    public Contacto getContactoById(@PathVariable Long id){
+        return contactoServiceImpl.findContactoById(id);
     }
 
 

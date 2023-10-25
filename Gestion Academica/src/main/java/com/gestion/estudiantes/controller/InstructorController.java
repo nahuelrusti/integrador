@@ -1,7 +1,7 @@
 package com.gestion.estudiantes.controller;
 
-import com.gestion.estudiantes.model.InstructorModel;
-import com.gestion.estudiantes.services.InstructorService;
+import com.gestion.estudiantes.entity.Instructor;
+import com.gestion.estudiantes.services.InstructorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,31 +11,31 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class InstructorController {
     @Autowired
-    InstructorService instructorService;
+    private InstructorServiceImpl instructorServiceImpl;
     //Acá estaba el repository
 
     @PostMapping("/instructores/nuevo")
-    public InstructorModel nuevoInstructor(@RequestBody InstructorModel instructorNuevo){
-        return instructorService.saveInstructor(instructorNuevo);
+    public Instructor nuevoInstructor(@RequestBody Instructor instructorNuevo){
+        return instructorServiceImpl.saveInstructor(instructorNuevo);
     }
 
     @PutMapping("/instructores/{id}")
-    public InstructorModel editarInstructor(@RequestBody InstructorModel instructor, @PathVariable Long id){
-        return instructorService.modificarInstructor(instructor, id);
+    public Instructor editarInstructor(@RequestBody Instructor instructor, @PathVariable Long id){
+        return instructorServiceImpl.modificarInstructor(instructor, id);
     }
 
     @DeleteMapping("/instructores/{id}")
     public void eliminarInstructor(@PathVariable Long id) {
-        instructorService.deleteInstructorById(id);
+        instructorServiceImpl.deleteInstructorById(id);
     }
 
     @GetMapping("/instructores")
-    public List<InstructorModel> getInstructor(){
-        return instructorService.findInstructor();
+    public List<Instructor> getInstructor(){
+        return instructorServiceImpl.findInstructor();
     }
 
     @GetMapping("/instructores/{id}")
-    public InstructorModel getInstructorById(@PathVariable Long id){
-        return instructorService.findInstructorById(id);
+    public Instructor getInstructorById(@PathVariable Long id){
+        return instructorServiceImpl.findInstructorById(id);
     }
 }
