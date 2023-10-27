@@ -17,11 +17,7 @@ import java.time.LocalDateTime;
 
 @Entity(name = "cursos")
 @Table
-public class Curso {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Curso extends EntitySuper {
 
     @Column(nullable = false)
     private String nombre;

@@ -1,7 +1,8 @@
 package com.gestion.estudiantes.controller;
 
+import com.gestion.estudiantes.dto.InstructorDTO;
 import com.gestion.estudiantes.entity.Instructor;
-import com.gestion.estudiantes.services.InstructorServiceImpl;
+import com.gestion.estudiantes.servicesImpl.InstructorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,12 +31,12 @@ public class InstructorController {
     }
 
     @GetMapping("/instructores")
-    public List<Instructor> getInstructor(){
+    public List<InstructorDTO> getInstructor(){
         return instructorServiceImpl.findInstructor();
     }
 
     @GetMapping("/instructores/{id}")
-    public Instructor getInstructorById(@PathVariable Long id){
+    public InstructorDTO getInstructorById(@PathVariable Long id){
         return instructorServiceImpl.findInstructorById(id);
     }
 }

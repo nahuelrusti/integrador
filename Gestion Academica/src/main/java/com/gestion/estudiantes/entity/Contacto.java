@@ -17,11 +17,7 @@ import java.time.LocalDateTime;
 
 @Entity(name = "Contactos")
 @Table
-public class Contacto {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Contacto extends EntitySuper {
 
     @Column
     private String email;

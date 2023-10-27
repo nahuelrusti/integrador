@@ -1,4 +1,4 @@
-package com.gestion.estudiantes.services;
+package com.gestion.estudiantes.service;
 
 import com.gestion.estudiantes.entity.Estudiante;
 import com.gestion.estudiantes.dao.EstudianteDAO;

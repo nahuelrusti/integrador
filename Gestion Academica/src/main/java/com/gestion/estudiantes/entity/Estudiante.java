@@ -10,7 +10,6 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,12 +19,7 @@ import java.util.List;
 
 @Entity(name = "estudiantes")
 @Table
-public class Estudiante {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //autoincremento
-    private long id;
+public class Estudiante extends EntitySuper {
 
     @Column(nullable = false)
     private String nombre;
@@ -42,11 +36,12 @@ public class Estudiante {
     @Column(name = "nacimiento", nullable = false)
    private LocalDate fechaNacimiento;
 
+    /* Tabla reemplazada por la entidad Calificaciones y generado una conexión ManyToOne
     @ManyToMany
     @JoinTable(name = "curso_estudiantes",
             joinColumns = @JoinColumn(name = "id_curso", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "id"))
-    private List<Curso> cursos;
+           inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "id"))
+    private List<Curso> cursos;*/
 
     @CreationTimestamp
     private LocalDateTime creacion;

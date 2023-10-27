@@ -1,7 +1,8 @@
 package com.gestion.estudiantes.controller;
 
+import com.gestion.estudiantes.dto.ContactoDTO;
 import com.gestion.estudiantes.entity.Contacto;
-import com.gestion.estudiantes.services.ContactoServiceImpl;
+import com.gestion.estudiantes.servicesImpl.ContactoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,12 +32,12 @@ public class ContactoController {
     }
 
     @GetMapping("/contactos")
-    public List<Contacto> getContacto(){
+    public List<ContactoDTO> getContacto(){
         return contactoServiceImpl.findContacto();
     }
 
     @GetMapping("/contacto/{id}")
-    public Contacto getContactoById(@PathVariable Long id){
+    public ContactoDTO getContactoById(@PathVariable Long id){
         return contactoServiceImpl.findContactoById(id);
     }
 

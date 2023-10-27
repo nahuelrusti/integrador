@@ -1,6 +1,7 @@
 package com.gestion.estudiantes.controller;
 
-import com.gestion.estudiantes.services.CursoServiceImpl;
+import com.gestion.estudiantes.dto.CursoDTO;
+import com.gestion.estudiantes.servicesImpl.CursoServiceImpl;
 import com.gestion.estudiantes.entity.Curso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,12 +31,12 @@ public class CursoController {
     }
 
     @GetMapping("/cursos")
-    public List<Curso> getCurso(){
+    public List<CursoDTO> getCurso(){
         return cursoServiceImpl.findCursos();
     }
 
     @GetMapping("/cursos/{id}")
-    public Curso getCursoById(@PathVariable Long id){
+    public CursoDTO getCursoById(@PathVariable Long id){
         return cursoServiceImpl.findCursoById(id);
     }
 
