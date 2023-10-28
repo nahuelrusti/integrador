@@ -34,7 +34,7 @@ public class Estudiante extends EntitySuper {
     private String curso;
 
     @Column(name = "nacimiento", nullable = false)
-   private LocalDate fechaNacimiento;
+   private LocalDate edad;
 
     /* Tabla reemplazada por la entidad Calificaciones y generado una conexión ManyToOne
     @ManyToMany

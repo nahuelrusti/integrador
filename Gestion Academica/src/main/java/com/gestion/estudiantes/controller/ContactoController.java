@@ -36,7 +36,7 @@ public class ContactoController {
         return contactoServiceImpl.findContacto();
     }
 
-    @GetMapping("/contacto/{id}")
+    @GetMapping("/contactos/{id}")
     public ContactoDTO getContactoById(@PathVariable Long id){
         return contactoServiceImpl.findContactoById(id);
     }

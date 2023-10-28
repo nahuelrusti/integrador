@@ -3,7 +3,7 @@ package com.gestion.estudiantes.servicesImpl;
 import com.gestion.estudiantes.dao.CalificacionDAO;
 import com.gestion.estudiantes.dto.CalificacionDTO;
 import com.gestion.estudiantes.entity.Calificacion;
-import com.gestion.estudiantes.services.CalificacionService;
+import com.gestion.estudiantes.service.CalificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

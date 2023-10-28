@@ -3,7 +3,7 @@ package com.gestion.estudiantes.servicesImpl;
 import com.gestion.estudiantes.dto.EstudianteDTO;
 import com.gestion.estudiantes.entity.Estudiante;
 import com.gestion.estudiantes.dao.EstudianteDAO;
-import com.gestion.estudiantes.services.EstudianteService;
+import com.gestion.estudiantes.service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,7 +73,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     private EstudianteDTO crearDTO(Estudiante e){
         String nombreCompleto = e.getNombre().concat(" ").concat(e.getApellido());
-        int edadActual = Period.between(e.getFechaNacimiento(), LocalDate.now()).getYears();
+        int edadActual = Period.between(e.getEdad(), LocalDate.now()).getYears();
         return new EstudianteDTO(nombreCompleto, e.getDni(), e.getCurso(), edadActual);
     }
 

@@ -3,7 +3,8 @@ package com.gestion.estudiantes.servicesImpl;
 import com.gestion.estudiantes.dao.ContactoDAO;
 import com.gestion.estudiantes.dto.ContactoDTO;
 import com.gestion.estudiantes.entity.Contacto;
-import com.gestion.estudiantes.services.ContactoService;
+import com.gestion.estudiantes.entity.Estudiante;
+import com.gestion.estudiantes.service.ContactoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,11 +74,7 @@ public class ContactoServiceImpl implements ContactoService{
     }
 
     private ContactoDTO crearDTO(Contacto c){
-        String domicilio = c.getProvincia().
-                concat(" - ").concat(c.getCiudad()).
-                concat(" - ").concat(c.getDireccion()).
-                concat(" - ").concat(c.getCodigoPostal());
-        return new ContactoDTO(c.getEmail(), c.getTelefono(), domicilio);
+        return new ContactoDTO(c.getEmail(), c.getTelefono(), c);
     }
 
 }

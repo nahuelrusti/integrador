@@ -3,7 +3,7 @@ package com.gestion.estudiantes.servicesImpl;
 import com.gestion.estudiantes.dto.InstructorDTO;
 import com.gestion.estudiantes.entity.Instructor;
 import com.gestion.estudiantes.dao.InstructorDAO;
-import com.gestion.estudiantes.services.InstructorService;
+import com.gestion.estudiantes.service.InstructorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

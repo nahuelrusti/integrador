@@ -3,7 +3,7 @@ package com.gestion.estudiantes.servicesImpl;
 import com.gestion.estudiantes.dto.CursoDTO;
 import com.gestion.estudiantes.entity.Curso;
 import com.gestion.estudiantes.dao.CursoDAO;
-import com.gestion.estudiantes.services.CursoService;
+import com.gestion.estudiantes.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
